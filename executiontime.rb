@@ -55,11 +55,29 @@ end
 def largest_contiguous_subsum_one(list)
     arr = []
 
-    list.each_with_index do |ele, idx|
-        arr << [ele]
+    list.each_with_index do |ele, idx|      # O(n)
+        (idx...list.length).each do |idx2|  # O(n)
+            arr << list[idx..idx2]          # O(1)
+        end
+    end
 
-        
+    largest_subsum = 0                      # O(1)
+    arr.each do |subarr|                    # O(n)
+        sub_sum = subarr.sum                # O(1)
+        if sub_sum > largest_subsum         # O(1)
+            largest_subsum = sub_sum        # O(1)
+        end
+    end
+    largest_subsum                          # O(1)
+end
 
+# O(n) * # O(n) * # O(n) = n^3
+
+list_1 = [2, 3, -6, 7, -6, 7]
+list = [5, 3, -7]
+
+p largest_contiguous_subsum_one(list)
+p largest_contiguous_subsum_one(list_1)
 
 
 
