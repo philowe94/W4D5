@@ -72,22 +72,36 @@ def largest_contiguous_subsum_one(list)
 end
 
 # O(n) * # O(n) * # O(n) = n^3
+# Quadratic time
 
-list_1 = [2, 3, -6, 7, -6, 7]
+
+def largest_contiguous_subsum_two(list)
+
+    list.each do |ele|
+        if ele < 0
+            list.delete(ele)
+        end
+    end
+
+    return list.sum
+end
+
 list = [5, 3, -7]
+list_1 = [2, 3, -6, 7, -6, 7]
 
-p largest_contiguous_subsum_one(list)
-p largest_contiguous_subsum_one(list_1)
-
-
+p largest_contiguous_subsum_two(list)
+p largest_contiguous_subsum_two(list_1)
 
 # list = [5, 3, -7]
 # largest_contiguous_subsum(list) # => 8
 
 # # possible sub-sums
-# [5]           # => 5
-# [5, 3]        # => 8 --> we want this one
-# [5, 3, -7]    # => 1
-# [3]           # => 3
-# [3, -7]       # => -4
-# [-7]          # => -7
+# [6]           # => 6
+# [6, -9]        # => -3 
+# [6, -9, 10]    # => 7
+# [-9]           # => -9
+# [-9, 10]       # => 1
+# [10]          # => 10
+
+# [2, 3, -6, 7, -6, 7]
+
