@@ -51,8 +51,34 @@ def third_anagram?(str1, str2)
     return str1sorted == str2sorted
 end
 
-p third_anagram?("cat", "tac")
-p third_anagram?("elvis", "lives")
+# p third_anagram?("cat", "tac")
+# p third_anagram?("elvis", "lives")
+
+# Phase IV:
+
+# Write one more method #fourth_anagram?. This time, use two Hashes to store 
+# the number of times each letter appears in both words. Compare the resulting hashes.
+
+
 
 def fourth_anagram?(str1, str2)
+
+    str1_hash = Hash.new {|h,k| h[k] = 0 }  # O(1)
+    str2_hash = Hash.new {|h,k| h[k] = 0 }  # O(1)
+
+    str1.each_char do |char|                # O(n)
+        str1_hash[char] += 1
+    end
+
+     str2.each_char do |char|               # O(n)
+        str2_hash[char] += 1
+    end
+
+    str1_hash == str2_hash                  # O(1)
+
 end
+
+# O(n) + O(n) = n
+
+p fourth_anagram?("cat", "tac")
+p fourth_anagram?("elvis", "lives")
