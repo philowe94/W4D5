@@ -62,7 +62,7 @@ def largest_contiguous_subsum_one(list)
     end
 
     largest_subsum = 0                      # O(1)
-    arr.each do |subarr|                    # O(n)
+    arr.each do |subarr|                    # O(n^2)
         sub_sum = subarr.sum                # O(1)
         if sub_sum > largest_subsum         # O(1)
             largest_subsum = sub_sum        # O(1)
@@ -71,7 +71,7 @@ def largest_contiguous_subsum_one(list)
     largest_subsum                          # O(1)
 end
 
-# O(n) * # O(n) * # O(n) = n^3
+# O(n) *  O(n) +  O(n^2) = n^2 + n^2 = n^2
 # Quadratic time
 
 
