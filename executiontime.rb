@@ -77,14 +77,22 @@ end
 
 def largest_contiguous_subsum_two(list)
 
-    list.each do |ele|
-        if ele < 0
-            list.delete(ele)
+    largest_sum = list.first           # O(1)
+    current_sum = list.first           # O(1)
+
+    list[1..-1].each do |ele|           # O(n)
+        if current_sum < 0              # O(1)
+            current_sum = 0             # O(1)
+        end
+        current_sum += ele              # O(1)
+        if current_sum > largest_sum    # O(1)
+            largest_sum = current_sum   # O(1)
         end
     end
-
-    return list.sum
+    largest_sum                         # O(1)
 end
+
+# O(n) = n
 
 list = [5, 3, -7]
 list_1 = [2, 3, -6, 7, -6, 7]
