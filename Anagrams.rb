@@ -30,12 +30,29 @@ end
 
 
 def second_anagram?(str1, str2)
-    str2_arr = str2.split 
-    str1.each_char do |char|
-        str2_arr.find_index(char)
+    str2_arr = str2.split("")           # O(1)
+    str1.each_char do |char|            # O(n)
+        idx = str2_arr.find_index(char) # O(n)
+        return false if idx == nil      # O(1)
+        str2_arr.delete_at(idx)         # O(1)
     end
+    return str2_arr.empty?              # O(1)
 end
 
+#O(n^2)
 
+# p second_anagram?("cat", "tac")
+# p second_anagram?("elvis", "lives")
 
+def third_anagram?(str1, str2)
+    str1sorted = str1.split("").sort.join
+    str2sorted = str2.split("").sort.join
 
+    return str1sorted == str2sorted
+end
+
+p third_anagram?("cat", "tac")
+p third_anagram?("elvis", "lives")
+
+def fourth_anagram?(str1, str2)
+end
