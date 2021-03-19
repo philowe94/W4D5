@@ -1,11 +1,18 @@
 def bad_two_sum?(arr, target_sum)
 
-    arr.each_with_index do |ele, idx|
-        arr[idx+1..-1].each_with_index do |ele2, idx2|
-            return true if ele + ele2 == target_sum
+    arr.each_with_index do |ele, idx|                   # O(n)
+        arr[idx+1..-1].each_with_index do |ele2, idx2|  # O(n)
+            return true if ele + ele2 == target_sum     # O(1)
         end
     end
     false
+end
+
+#O(n^2) =>  Quadratic
+
+def okay_two_sum?(arr, target_sum)
+
+    
 end
 
 
